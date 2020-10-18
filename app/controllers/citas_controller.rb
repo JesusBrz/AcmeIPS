@@ -1,0 +1,2 @@
+class CitasController < ApplicationController
+end
