@@ -3490,3 +3490,78 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 177ms (Views: 173.0ms | ActiveRecord: 0.3ms | Allocations: 18237)
 
 
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at C:/Users/jessm/Documents/GitHub/AcmeIPS/config/environment.rb:5)
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at C:/Ruby27-x64/bin/rake:31)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at C:/Users/jessm/Documents/GitHub/AcmeIPS/config/environment.rb:5)
+Started GET "/" for ::1 at 2020-10-18 14:20:33 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 57.9ms | Allocations: 269)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:30
+Completed 200 OK in 3145ms (Views: 3003.0ms | ActiveRecord: 14.0ms | Allocations: 40271)
+
+
+Started GET "/users/edit" for ::1 at 2020-10-18 14:20:47 -0500
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 16.1ms | Allocations: 198)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 425.2ms | Allocations: 6872)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 599ms (Views: 529.4ms | ActiveRecord: 0.5ms | Allocations: 25716)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-10-18 14:21:02 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"j68IMdrRsspIa8tW1HRjfOY5UKZZz+hgRNthff+vcjjQazd99O1O1+p/4QVm/x1kbQlWNSMxPaqLLii0okJHmQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 72ms (ActiveRecord: 0.4ms | Allocations: 2912)
+
+
+Started GET "/" for ::1 at 2020-10-18 14:21:02 -0500
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 105ms (Views: 104.3ms | ActiveRecord: 0.0ms | Allocations: 15984)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-10-18 14:21:03 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered devise/shared/_links.html.erb (Duration: 47.5ms | Allocations: 507)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 121.2ms | Allocations: 2601)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 218ms (Views: 217.2ms | ActiveRecord: 0.0ms | Allocations: 18883)
+
+
