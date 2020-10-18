@@ -31,8 +31,13 @@ nav ul li a {
     text-transform: uppercase;
 }
 
+a:link {
+    text-decoration: none;
+}
+
 a.active,
 a:hover {
+    color: white;
     background: #1b9bff;
     transition: .5s;
 }
