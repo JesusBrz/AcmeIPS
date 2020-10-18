@@ -13,6 +13,23 @@
 </head>
 
 <body>
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">ACME IPS</label>
+    <ul>
+      <li><%= link_to "Inicio", home_index_path, :class => "a"%></li>
+      <li><%= link_to "Citas", citas_index_path, :class => "a"%></li>
+      <%if user_signed_in?%>
+        <a> Hola <%= current_user.name %>! </a>
+      <%else%>
+        <li><%= link_to "Iniciar Sesión", new_user_session_path, :class => "a"%></li>
+        <li><%= link_to "Registrarse", new_user_registration_path, :class => "a"%></li>
+      <%end%>
+    </ul>
+  </nav>
   <!--
   <% if notice %>
   <div class="alert alert-success" role="alert"><%= notice %></div>
@@ -24,19 +41,6 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= yield %>
-  <nav>
-    <input type="checkbox" id="check">
-    <label for="check" class="checkbtn">
-      <i class="fas fa-bars"></i>
-    </label>
-    <label class="logo">ACME IPS</label>
-    <ul>
-      <li><%= link_to "Inicio", home_index_path, :class => "a"%></li>
-      <li><%= link_to "Citas", citas_index_path, :class => "a"%></li>
-      <li><a href="#">Iniciar Sesión</a></li>
-      <li><a href="#">Registrarse</a></li>
-    </ul>
-  </nav>
 </body>
 
 </html>
