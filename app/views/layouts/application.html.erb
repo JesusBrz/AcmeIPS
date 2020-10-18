@@ -27,7 +27,26 @@
         <li class="nav-item active">
           <%= link_to "Citas", citas_index_path, :class => "nav-link"%>
         </li>
-
+        <%if user_signed_in?%>
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            ¡Hola <%= current_user.name%>!
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <%= link_to "Editar Perfil", edit_user_registration_path, :class => "dropdown-item"%>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Cerrar Sesión", destroy_user_session_path, :method => :delete, :class => "dropdown-item"%>
+          </div>
+        </li>
+        <%else%>
+        <li class="nav-item active">
+          <%= link_to "Iniciar Sesión", new_user_session_path, :class => "nav-link"%>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Registrarse", new_user_registration_path, :class => "nav-link"%>
+        </li>
+        <%end%>
       </ul>
     </div>
   </nav>
