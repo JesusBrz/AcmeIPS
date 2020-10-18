@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Acmeips</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <%= link_to "ACME IPS", home_index_path, :class => "navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+        <li class="nav-item active">
+          <%= link_to "Inicio", home_index_path, :class => "nav-link"%>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Citas", citas_index_path, :class => "nav-link"%>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <% if notice %>
+  <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+  <% if alert %>
+  <div class="alert alert-danger" role="alert"><%= alert %></div>
+  <% end %>
+  <%= yield %>
+</body>
+
 </html>
