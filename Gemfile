@@ -5,6 +5,8 @@ ruby '2.7.2'
 
 # Use Devise for Log In / Sign Up
 gem 'devise', '~> 4.7', '>= 4.7.3'
+# Use CanCan for Roles
+gem 'cancan', '~> 1.6', '>= 1.6.10'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use postgresql as the database for Active Record
