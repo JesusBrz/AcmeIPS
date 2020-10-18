@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AcmeIPS</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="app\assets\stylesheets\home.scss">
+  <link rel="stylesheet" href="app\assets\stylesheets\navbar.scss">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <% if notice %>
+  <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+  <% if alert %>
+  <div class="alert alert-danger" role="alert"><%= alert %></div>
+  <% end %>
+  <%= yield %>
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">ACME IPS</label>
+    <ul>
+      <li><%= link_to "Inicio", home_index_path, :class => "a"%></li>
+      <li><%= link_to "Citas", citas_index_path, :class => "a"%></li>
+      <li><a href="#">Iniciar Sesión</a></li>
+      <li><a href="#">Registrarse</a></li>
+    </ul>
+
+  </nav>
+</body>
+
 </html>
