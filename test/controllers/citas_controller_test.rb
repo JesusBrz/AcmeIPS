@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class CitasControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get index" do
+    get citas_index_url
+    assert_response :success
+  end
+
 end
