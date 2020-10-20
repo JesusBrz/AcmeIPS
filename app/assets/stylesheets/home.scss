@@ -1,12 +1,11 @@
-* {
-    padding: 0;
+body {
+    height: 100%;
     margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
 }
 
-body {
-    /*TODO Escoger fuente para el cuerpo*/
-    font-family: 'Acme', sans-serif;
+img {
+    width: 100%;
+    height: calc(100vh - 71px);
+    object-fit: cover;
+    opacity: 0.7;
 }

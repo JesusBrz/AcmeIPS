@@ -1,8 +1,81 @@
 @import 'bootstrap/scss/bootstrap';
 
+html,
+body {
+    font-family: 'Acme', sans-serif;
+}
+
+/* Navbar */
+
+.center {
+    display: flex;
+    text-align: center;
+}
+
+.navbar-icon {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+
 .navbar-brand {
     font-size: 30px;
 }
-.nav-item {
+
+.navbar-expand-lg .navbar-nav .nav-link {
     font-size: 20px;
+    padding-left: 15px;
+}
+
+/* Fancy Dropdown Animation */
+
+@media all and (min-width: 992px) {
+    .dropdown-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s;
+        margin-top: 0;
+    }
+
+    .nav-link:hover,
+    .navbar-brand:hover {
+        color: dodgerblue;
+    }
+
+    .dropdown-menu .fade-down {
+        top: 80%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+    }
+
+    .nav-item:hover .dropdown-menu {
+        transition: .3s;
+        opacity: 1;
+        visibility: visible;
+        top: 100%;
+        transform: rotateX(0deg);
+    }
+}
+
+/* Fancy Scroll Bar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
