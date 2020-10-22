@@ -1,11 +1,12 @@
 body {
-    height: 100%;
     margin: 0;
+    height: 100%;
+    background: url(citas.jpg) no-repeat;
+    background-size: cover;
 }
 
-img {
-    width: 100%;
-    height: calc(100vh - 71px);
-    object-fit: cover;
-    opacity: 0.7;
+/* Temporal */
+img.svg {
+    width: 500px;
+    height: 500px;
 }
