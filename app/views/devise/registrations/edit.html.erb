@@ -4,18 +4,33 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :Nombres %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "Nombres" %>
   </div>
 
   <div class="field">
-    <%= f.label :surname %><br />
+    <%= f.label :Apellidos %><br />
     <%= f.text_field :surname, autofocus: true, autocomplete: "Apellidos" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "E-mail" %>
+    <%= f.label :Documento_de_Identidad %><br />
+    <%= f.text_field :document, autofocus: true, autocomplete: "Documento de Identidad" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Fecha_de_Nacimiento %><br />
+    <%= f.date_field :birthday, as: :date, value: f.object.try(:strftime,"%m/%d/%Y")%>
+  </div>
+
+  <div class="field">
+    <%= f.label :Teléfono_Móvil %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "Teléfono Móvil" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Correo_Elctrónico %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "Correo Electrónico" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -23,7 +38,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(déjela en blanco si no quiere cambiarla)</i><br />
+    <%= f.label :Nueva_Contraseña %> <i>(déjela en blanco si no quiere cambiarla)</i><br />
     <%= f.password_field :password, autocomplete: "Nueva Contraseña" %>
     <% if @minimum_password_length %>
       <br />
@@ -32,12 +47,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :Confirmar_Nueva_Contraseñan %><br />
     <%= f.password_field :password_confirmation, autocomplete: "Confirmar Nueva Contraseña" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(necesitamos tu contraseña actual para confirmar cambios)</i><br />
+    <%= f.label :Contraseña_Actual %> <i>(necesitamos tu contraseña actual para confirmar cambios)</i><br />
     <%= f.password_field :current_password, autocomplete: "Contraseña Actual" %>
   </div>
 
