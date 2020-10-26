@@ -5,38 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag 'citas', 'data-turbolinks-track': 'reload' %>
-    <title>Document</title>
+    <title>Cita #<%= @cita.id %></title>
 </head>
 
 <body>
-    <p>
-        <strong>Nombre del Paciente:</strong>
-        <%= @cita.nombre_paciente %>
-    </p>
-    <p>
-        <strong>Docuemnto del Paciente:</strong>
-        <%= @cita.documento_paciente %>
-    </p>
-    <p>
-        <strong>Teléfono del Paciente:</strong>
-        <%= @cita.telefono_paciente %>
-    </p>
-    <p>
-        <strong>Nombre del Médico:</strong>
-        <%= @cita.nombre_medico %>
-    </p>
-    <p>
-        <strong>Fecha de la cita:</strong>
-        <%= @cita.fecha %>
-    </p>
-    <p>
-        <strong>Hora de la cita:</strong>
-        <%= @cita.hora %>
-    </p>
-    <p>
-        <strong>Tipo de cita:</strong>
-        <%= @cita.tipo %>
-    </p>
+    <main>
+        <p>
+            <strong>Nombre del Paciente:</strong>
+            <%= @cita.nombre_paciente %>
+        </p>
+        <p>
+            <strong>Docuemnto del Paciente:</strong>
+            <%= @cita.documento_paciente %>
+        </p>
+        <p>
+            <strong>Teléfono del Paciente:</strong>
+            <%= @cita.telefono_paciente %>
+        </p>
+        <p>
+            <strong>Nombre del Médico:</strong>
+            <%= @cita.nombre_medico %>
+        </p>
+        <p>
+            <strong>Fecha de la cita:</strong>
+            <%= @cita.fecha %>
+        </p>
+        <p>
+            <strong>Hora de la cita:</strong>
+            <%= @cita.hora %>
+        </p>
+        <p>
+            <strong>Tipo de cita:</strong>
+            <%= @cita.tipo %>
+        </p>
+    </main>
 </body>
 
 </html>
