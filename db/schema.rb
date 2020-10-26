@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_25_212405) do
+ActiveRecord::Schema.define(version: 2020_10_26_001529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cita", force: :cascade do |t|
+  create_table "citas", force: :cascade do |t|
+    t.string "nombre_paciente"
+    t.string "documento_paciente"
+    t.string "telefono_paciente"
+    t.string "nombre_medico"
     t.date "fecha"
     t.time "hora"
     t.string "tipo"

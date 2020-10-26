@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CitasControllerTest < ActionDispatch::IntegrationTest
+class CitaTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

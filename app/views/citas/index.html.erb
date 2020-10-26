@@ -9,7 +9,37 @@
 </head>
 
 <body>
-    <%= image_tag("Mobile_marketing.svg", :class => "svg") %>
+    <main>
+        <h1>Todas las Citas</h1>
+
+        <div class="table-responsive">
+            <table class="table table-sm table-striped">
+                <tr>
+                    <th>Nombre del Paciente</th>
+                    <th>Documento del Paciente</th>
+                    <th>Teléfono del Paciente</th>
+                    <th>Nombre del Médico</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Tipo</th>
+                    <th></th>
+                </tr>
+
+                <% @cita.each do |cita| %>
+                <tr>
+                    <td><%= cita.nombre_paciente %></td>
+                    <td><%= cita.documento_paciente %></td>
+                    <td><%= cita.telefono_paciente %></td>
+                    <td><%= cita.nombre_medico %></td>
+                    <td><%= cita.fecha %></td>
+                    <td><%= cita.hora.strftime("%H:%M") %></td>
+                    <td><%= cita.tipo %></td>
+                    <td><%= link_to 'Show', cita_path(cita) %></td>
+                </tr>
+                <% end %>
+            </table>
+        </div>
+    </main>
 </body>
 
 </html>

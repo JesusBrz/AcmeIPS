@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'citas', 'data-turbolinks-track': 'reload' %>
+    <title>Nueva Cita</title>
+</head>
+
+<body>
+    <h1>Nueva Cita</h1>
+    <%= form_with scope: :citas, url: citas_path, local: true do |form| %>
+
+    <div class="field">
+        <%= form.label :Nombre_completo_del_Paciente %><br>
+        <%= form.text_field :nombre_paciente %>
+    </div>
+    <div class="field">
+        <%= form.label :Docuemnto_de_Identidad %><br>
+        <%= form.text_field :documento_paciente %>
+    </div>
+    <div class="field">
+        <%= form.label :Teléfono %><br>
+        <%= form.text_field :telefono_paciente %>
+    </div>
+    <div class="field">
+        <%= form.label :Medico %><br>
+        <%= form.text_field :nombre_medico %>
+    </div>
+    <div class="field">
+        <%= form.label :Fecha_de_la_cita %><br />
+        <%= form.date_field :fecha, min: Date.today + 21, max: Date.today + 81, value: form.object.try(:strftime,"%m/%d/%Y", :start_year, "Date.today.year")%>
+    </div>
+    <div class="field">
+        <%= form.label :Hora_de_la_cita %><br>
+        <%= form.text_field :hora %>
+    </div>
+    <div class="field">
+        <%= form.label :Tipo_de_cita %><br>
+        <%= form.text_field :tipo %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit "Agendar Cita" %>
+    </div>
+
+    <% end %>
+</body>
+
+</html>
