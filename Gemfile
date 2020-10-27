@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
-
+# Use CanCan Gem (Rol)
+gem 'cancancan'
 # Use Devise Gem (Authentication)
 gem 'devise', '~> 4.7.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
