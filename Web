@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20201027000118_change_column_default_to_citas.rb
