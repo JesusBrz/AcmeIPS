@@ -10,34 +10,36 @@
 
 <body>
     <main>
-        <p>
-            <strong>Nombre del Paciente:</strong>
-            <%= @cita.nombre_paciente %>
-        </p>
-        <p>
-            <strong>Docuemnto del Paciente:</strong>
-            <%= @cita.documento_paciente %>
-        </p>
-        <p>
-            <strong>Teléfono del Paciente:</strong>
-            <%= @cita.telefono_paciente %>
-        </p>
-        <p>
-            <strong>Nombre del Médico:</strong>
-            <%= @cita.nombre_medico %>
-        </p>
-        <p>
-            <strong>Fecha de la cita:</strong>
-            <%= @cita.fecha %>
-        </p>
-        <p>
-            <strong>Hora de la cita:</strong>
-            <%= @cita.hora %>
-        </p>
-        <p>
-            <strong>Tipo de cita:</strong>
-            <%= @cita.tipo %>
-        </p>
+        <% if can? :show, Cita%>
+            <p>
+                <strong>Nombre del Paciente:</strong>
+                <%= @cita.nombre_paciente %>
+            </p>
+            <p>
+                <strong>Docuemnto del Paciente:</strong>
+                <%= @cita.documento_paciente %>
+            </p>
+            <p>
+                <strong>Teléfono del Paciente:</strong>
+                <%= @cita.telefono_paciente %>
+            </p>
+            <p>
+                <strong>Nombre del Médico:</strong>
+                <%= @cita.nombre_medico %>
+            </p>
+            <p>
+                <strong>Fecha de la cita:</strong>
+                <%= @cita.fecha %>
+            </p>
+            <p>
+                <strong>Hora de la cita:</strong>
+                <%= @cita.hora %>
+            </p>
+            <p>
+                <strong>Tipo de cita:</strong>
+                <%= @cita.tipo %>
+            </p>
+        <% end %>
     </main>
 </body>
 

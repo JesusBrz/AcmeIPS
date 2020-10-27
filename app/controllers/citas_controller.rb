@@ -6,19 +6,41 @@ class CitasController < ApplicationController
     def show
         @cita = Cita.find(params[:id])
     end
-    
+
     def new
+        @article = Cita.new
     end
-    
+
+    def edit
+        @article = Cita.find(params[:id])
+    end
+
     def create
         @cita = Cita.new(cita_params)
-   
-        @cita.save
-        redirect_to citas_url
-    end
-   
-    private
-        def cita_params
-            params.require(:citas).permit(:nombre_paciente, :documento_paciente, :telefono_paciente, :nombre_medico, :fecha, :hora, :tipo)
+        if @cita.save
+            redirect_to citas_path
+        else
+            render 'new'
         end
+    end
+
+    def update
+        @cita = Cita.find(params[:id])
+        if @cita.update(cita_params)
+            redirect_to @cita
+        else
+            render 'edit'
+        end
+    end
+
+    def destroy
+        @cita = Cita.find(params[:id])
+        @cita.destroy
+        redirect_to citas_path
+    end
+
+    private
+    def cita_params
+        params.require(:citas).permit(:nombre_paciente, :documento_paciente, :telefono_paciente, :nombre_medico, :fecha, :hora, :tipo)
+    end
 end

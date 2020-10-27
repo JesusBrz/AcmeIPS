@@ -15,18 +15,31 @@
 
         <div class="field">
             <%= form.label :Nombre_completo_del_Paciente %><br>
-            <%= form.text_field :nombre_paciente %>
+            <% if current_user %>
+                <%= form.text_field :nombre_paciente, required: true, value:current_user.name + ' ' + current_user.surname %>
+            <% else %>
+                <%= form.text_field :nombre_paciente, required: true %>
+            <% end %>
         </div>
         <div class="field">
             <%= form.label :Docuemnto_de_Identidad %><br>
-            <%= form.text_field :documento_paciente %>
+            <% if current_user %>
+                <%= form.text_field :documento_paciente, required: true, value:current_user.document %>
+            <% else %>
+                <%= form.text_field :documento_paciente, required: true %>
+            <% end %>
         </div>
         <div class="field">
             <%= form.label :Teléfono %><br>
-            <%= form.text_field :telefono_paciente %>
+            <% if current_user %>
+                <%= form.text_field :telefono_paciente, required: true, value:current_user.phone %>
+            <% else %>
+                <%= form.text_field :telefono_paciente, required: true %>
+            <% end %>
         </div>
         <div class="field">
             <%= form.label :Medico %><br>
+            <!-- Agregar el dropdown de Medicos -->
             <%= form.text_field :nombre_medico %>
         </div>
         <div class="field">
@@ -37,10 +50,14 @@
             <%= form.label :Hora_de_la_cita %><br>
             <%= form.text_field :hora %>
         </div>
-        <div class="field">
-            <%= form.label :Tipo_de_cita %><br>
-            <%= form.text_field :tipo %>
-        </div>
+        <%if user_signed_in?%>
+            <%if current_user.rol == "admin" || current_user.rol == "medico" || current_user.rol == "secretario"%>
+                <div class="field">
+                    <%= form.label :Tipo_de_cita %><br>
+                    <%= form.text_field :tipo, :value => "Web" %>
+                </div>
+            <% end %>
+        <% end %>
 
         <div class="actions">
             <%= form.submit "Agendar Cita" %>
