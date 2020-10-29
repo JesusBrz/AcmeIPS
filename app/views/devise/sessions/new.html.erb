@@ -4,72 +4,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag 'sign', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'sign_in', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'forms', 'data-turbolinks-track': 'reload' %>
   <title>Iniciar Sesión</title>
 </head>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
 <body>
-  <div class="container">
-    <div class="row mt-4 py-5 align-items-center">
-      <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
-        <h1 style="text-align: center">Inicia Sesión</h1>
-        <%= image_tag("sign_in.svg", :class => "img-fluid mb-3 d-none d-md-block") %>
-      </div>
-
-      <!-- Login Form -->
-      <div class="col-md-7 col-lg-6 ml-auto">
-        <form action="#">
-          <div class="row">
-
-            <!-- Correo Electronico -->
-            <div class="input-group col-lg-12 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-envelope text-muted"></i>
-                </span>
-              </div>
-              <%= f.email_field :email, autofocus: true, :placeholder => "Correo Electrónico", :class => "form-control bg-white border-left-0 border-md"%>
-            </div>
-
-            <!-- Contraseña -->
-            <div class="input-group col-lg-12 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-lock text-muted"></i>
-                </span>
-              </div>
-              <%= f.password_field :password, :placeholder => "Contraseña", :class => "form-control bg-white border-left-0 border-md"%>
-            </div>
-
-            <% if devise_mapping.rememberable? %>
-            <div class="input-group col-lg-12 mb-4">
-              <div class="d-flex align-items-center">
-                <%= f.check_box :remember_me, :class => "mr-1"%> Recuérdame
-              </div>
-            </div>
-            <% end %>
-
-            <!-- Botón Inicio de Sesión -->
-            <div class="form-group col-lg-12 mx-auto mb-0">
-              <%= f.submit "Iniciar Sesión", :class => "btn btn-primary btn-block py-2" %>
-            </div>
-
-            <!-- ¿No tienes cuenta? -->
-            <div class="text-center w-100"> <br>
-              <p class="text-muted font-weight-bold">¿No tienes cuenta?
-                <%= render "devise/shared/links" %>
-              </p>
-            </div>
-
+  <main>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="container">
+        <div class="row mt-4 py-5 align-items-center">
+          <div class="col-md-5 pr-lg-5 mb-2 mb-md-0">
+            <h1 style="text-align: center">Inicia Sesión</h1><br>
+            <%= image_tag("sign_in.svg", :class => "img-fluid mb-3 d-none d-md-block") %>
           </div>
-        </form>
+
+          <!-- Login Form -->
+          <div class="col-md-7 col-lg-6 ml-auto">
+            <form action="#">
+              <div class="row">
+
+                <!-- Correo Electronico -->
+                <div class="input-group col-lg-12 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-envelope text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.email_field :email, autofocus: true, :placeholder => "Correo Electrónico", :class => "form-control bg-white border-left-0 border-md"%>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="input-group col-lg-12 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-lock text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.password_field :password, :placeholder => "Contraseña", :class => "form-control bg-white border-left-0 border-md"%>
+                </div>
+
+                <% if devise_mapping.rememberable? %>
+                <div class="input-group col-lg-12 mb-4">
+                  <div class="d-flex align-items-center">
+                    <%= f.check_box :remember_me, :class => "mr-1"%> Recuérdame
+                  </div>
+                </div>
+                <% end %>
+
+                <!-- Botón Inicio de Sesión -->
+                <div class="form-group col-lg-12 mx-auto mb-0">
+                  <%= f.submit "Iniciar Sesión", :class => "btn btn-primary btn-block py-2" %>
+                </div>
+
+                <!-- ¿No tienes cuenta? -->
+                <div class="text-center w-100"> <br>
+                  <p class="text-muted font-weight-bold">¿No tienes cuenta?
+                    <%= render "devise/shared/links" %>
+                  </p>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    <% end %>
+  </main>
 </body>
-<% end %>
-<%= javascript_pack_tag 'sign', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'forms', 'data-turbolinks-track': 'reload' %>
 
 </html>

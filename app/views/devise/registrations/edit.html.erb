@@ -4,134 +4,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag 'sign', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'sign_up', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'forms', 'data-turbolinks-track': 'reload' %>
   <title>Registro</title>
 </head>
 
 <body>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <div class="container">
-    <div class="row py-5 align-items-center">
-      <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
-        <h1 style="text-align: center">Edita tu Cuenta</h1>
-        <%= image_tag("edit_data.svg", :class => "img-fluid mb-3 d-none d-md-block") %>
-      </div>
-
-      <!-- Registeration Form -->
-      <div class="col-md-7 col-lg-6 ml-auto">
-        <form action="#">
-          <div class="row">
-
-            <!-- Nombres -->
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-user text-muted"></i>
-                </span>
-              </div>
-              <%= f.text_field :name, autofocus: true, :placeholder => "Nombres", :class => "form-control bg-white border-left-0 border-md" %>
-            </div>
-
-            <!-- Apellidos -->
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-user text-muted"></i>
-                </span>
-              </div>
-              <%= f.text_field :surname, autofocus: true, :placeholder => "Apellidos", :class => "form-control bg-white border-left-0 border-md"%>
-            </div>
-
-            <!-- Documento de Identidad -->
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-id-card text-muted"></i>
-                </span>
-              </div>
-              <%= f.text_field :document, autofocus: true, :placeholder => "Documento de Identidad", :class => "form-control bg-white border-left-0 border-md"%>
-            </div>
-
-            <!-- Fecha de Nacimiento -->
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-calendar text-muted"></i>
-                </span>
-              </div>
-              <%= f.date_field :birthday, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), :placeholder => "Fecha de Nacimiento", :class => "form-control bg-white border-left-0 border-md"%>
-            </div>
-
-            <!-- Teléfono Móvil -->
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-mobile text-muted"></i>
-                </span>
-              </div>
-              <%= f.number_field :phone, autofocus: true, :placeholder => "Teléfono Móvil", :class => "form-control bg-white border-md border-left-0 pl-3"%>
-            </div>
-
-            <!-- Correo Electronico -->
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-envelope text-muted"></i>
-                </span>
-              </div>
-              <%= f.email_field :email, autofocus: true, :placeholder => "Correo Electrónico", :class => "form-control bg-white border-left-0 border-md"%>
-            </div>
-
-            <!-- Nueva Contraseña -->
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-lock text-muted"></i>
-                </span>
-              </div>
-              <%= f.password_field :password, :placeholder => "Nueva Contraseña", :class => "form-control bg-white border-left-0 border-md"%>
-            </div>
-
-            <!-- Confirmar Nueva Contraseña -->
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-lock text-muted"></i>
-                </span>
-              </div>
-
-              <%= f.password_field :password_confirmation, :placeholder => "Confirmar Nueva Contraseña", :class => "form-control bg-white border-left-0 border-md"%>
-            </div>
-
-            <!-- Contraseña Actual -->
-            <sup class = "ml-4">Necesitamos tu contraseña para realizar cambios</sup>
-            <div class="input-group col-lg-12 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-lock text-muted"></i>
-                </span>
-              </div>
-              <%= f.password_field :current_password, :placeholder => "Contraseña Actual", :class => "form-control bg-white border-left-0 border-md"%>
-            </div>
-
-            <!-- Botón Actualizar -->
-            <div class="form-group col-lg-12 mx-auto mb-0">
-              <%= f.submit "Actualizar Datos", :class => "btn btn-primary btn-block py-2" %>
-            </div>
-
-            <!-- ¿Ya tienes cuenta? -->
-            <div class="text-center w-100">
-              <p>¿No estas satisfecho? <%= link_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estas seguro?" }, method: :delete %></p>
-              </p>
-            </div>
-
+  <main>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="container">
+        <div class="row py-5 align-items-center">
+          <div class="col-md-5 pr-lg-5 mb-2 mb-md-0">
+            <h1 style="text-align: center">Edita tu Cuenta</h1><br>
+            <%= image_tag("edit_data.svg", :class => "img-fluid mb-3 d-none d-md-block") %>
           </div>
-        </form>
+
+          <!-- Registeration Form -->
+          <div class="col-md-7 col-lg-6 ml-auto">
+            <form action="#">
+              <div class="row">
+
+                <!-- Nombres -->
+                <div class="input-group col-lg-6 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-user text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.text_field :name, autofocus: true, :placeholder => "Nombres", :class => "form-control bg-white border-left-0 border-md" %>
+                </div>
+
+                <!-- Apellidos -->
+                <div class="input-group col-lg-6 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-user text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.text_field :surname, autofocus: true, :placeholder => "Apellidos", :class => "form-control bg-white border-left-0 border-md"%>
+                </div>
+
+                <!-- Documento de Identidad -->
+                <div class="input-group col-lg-6 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-id-card text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.text_field :document, autofocus: true, :placeholder => "Documento de Identidad", :class => "form-control bg-white border-left-0 border-md"%>
+                </div>
+
+                <!-- Fecha de Nacimiento -->
+                <div class="input-group col-lg-6 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-calendar text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.date_field :birthday, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), :placeholder => "Fecha de Nacimiento", :class => "form-control bg-white border-left-0 border-md"%>
+                </div>
+
+                <!-- Teléfono Móvil -->
+                <div class="input-group col-lg-6 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-mobile text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.number_field :phone, autofocus: true, :placeholder => "Teléfono Móvil", :class => "form-control bg-white border-md border-left-0 pl-3"%>
+                </div>
+
+                <!-- Correo Electronico -->
+                <div class="input-group col-lg-6 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-envelope text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.email_field :email, autofocus: true, :placeholder => "Correo Electrónico", :class => "form-control bg-white border-left-0 border-md"%>
+                </div>
+
+                <!-- Nueva Contraseña -->
+                <div class="input-group col-lg-6 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-lock text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.password_field :password, :placeholder => "Nueva Contraseña", :class => "form-control bg-white border-left-0 border-md"%>
+                </div>
+
+                <!-- Confirmar Nueva Contraseña -->
+                <div class="input-group col-lg-6 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-lock text-muted"></i>
+                    </span>
+                  </div>
+
+                  <%= f.password_field :password_confirmation, :placeholder => "Confirmar Nueva Contraseña", :class => "form-control bg-white border-left-0 border-md"%>
+                </div>
+
+                <!-- Contraseña Actual -->
+                <sup class="ml-4">Necesitamos tu contraseña para realizar cambios</sup>
+                <div class="input-group col-lg-12 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-lock text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.password_field :current_password, :placeholder => "Contraseña Actual", :class => "form-control bg-white border-left-0 border-md"%>
+                </div>
+
+                <!-- Botón Actualizar -->
+                <div class="form-group col-lg-12 mx-auto mb-0">
+                  <%= f.submit "Actualizar Datos", :class => "btn btn-primary btn-block py-2" %>
+                </div>
+
+                <!-- ¿Ya tienes cuenta? -->
+                <div class="text-center w-100">
+                  <p>¿No estas satisfecho?
+                    <%= link_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estas seguro?" }, method: :delete %>
+                  </p>
+                  </p>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <% end %>
-  <%= javascript_pack_tag 'sign', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+  </main>
 </body>
+<%= javascript_pack_tag 'forms', 'data-turbolinks-track': 'reload' %>
 
 </html>
