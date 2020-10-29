@@ -16,7 +16,7 @@
         <% end %>
 
         <% if can? :read, Cita %>
-            <h1>Citas Agendadas</h1>
+            <h1>Reporte de Citas Agendadas</h1>
 
             <div class="table-responsive">
                 <table class="table table-sm table-striped">
@@ -49,6 +49,7 @@
             </div>
         <% end %>
     </main>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </body>
 
 </html>

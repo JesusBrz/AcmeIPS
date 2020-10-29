@@ -13,7 +13,7 @@
     <main>
         <%= form_with scope: :citas, url: citas_path, local: true do |form| %>
             <div class="container">
-                <div class="row py-5 align-items-center">
+                <div class="row py-4 align-items-center">
                     <div class="col-md-5 pr-lg-5 mb-2 mb-md-0">
                         <h1 style="text-align: center">Agendar una Cita</h1><br>
                         <%= image_tag("citas#{rand(5)}.svg", :class => "img-fluid mb-3 d-none d-md-block") %>
@@ -66,8 +66,7 @@
                                     <% end %>
                                 </div>
 
-                                <!-- Agregar el dropdown de Medicos -->
-                                <!-- Nombre Completo del Médico (Dropdown) TODO -->
+                                <!-- Nombre Completo del Médico (Dropdown) -->
                                 <div class="input-group col-lg-12 mb-4">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-white px-4 border-md border-right-0">
@@ -106,15 +105,13 @@
                                 <!-- Tipo de Cita (Dropdown) -->
                                 <%if user_signed_in?%>
                                     <%if current_user.rol == "admin" || current_user.rol == "medico" || current_user.rol == "secretario"%>
-                                        <div class="field">
-                                            <div class="input-group col-lg-12 mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                                        <i class="fa fa-calendar text-muted"></i>
-                                                    </span>
-                                                </div>
-                                                <%= form.text_field :tipo, :placeholder => "Tipo de Cita", :value => "Web", :class => "form-control bg-white border-md border-left-0 pl-3"%>
+                                        <div class="input-group col-lg-12 mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                                    <i class="fa fa-user text-muted"></i>
+                                                </span>
                                             </div>
+                                            <%= form.text_field :tipo, required: true, :placeholder => "Tipo de Cita", :value => "Web", :class => "form-control bg-white border-left-0 border-md" %>
                                         </div>
                                     <% end %>
                                 <% end %>
@@ -130,7 +127,7 @@
             </div>
         <% end %>
     </main>
+    <%= javascript_pack_tag 'forms', 'data-turbolinks-track': 'reload' %>
 </body>
-<%= javascript_pack_tag 'forms', 'data-turbolinks-track': 'reload' %>
 
 </html>
