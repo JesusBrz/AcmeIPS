@@ -1,6 +1,6 @@
 body,
 html {
-    background: url(asset_path('home.jpg')) no-repeat center;
+    background: url(asset_path('home.jpg')) no-repeat center fixed;
     background-size: cover;
     height: 100vh;
 }
