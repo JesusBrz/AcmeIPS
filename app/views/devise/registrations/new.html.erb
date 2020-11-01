@@ -54,24 +54,27 @@
                   <%= f.text_field :document, autofocus: true, :placeholder => "Documento de Identidad", :class => "form-control bg-white border-left-0 border-md"%>
                 </div>
 
-                <!-- Fecha de Nacimiento -->
-                <div class="input-group col-lg-6 mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-white px-4 border-md border-right-0">
-                      <i class="fa fa-calendar text-muted"></i>
-                    </span>
-                  </div>
-                  <%= f.date_field :birthday, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), :placeholder => "Fecha de Nacimiento", :class => "form-control bg-white border-left-0 border-md"%>
-                </div>
-
                 <!-- Teléfono Móvil -->
-                <div class="input-group col-lg-12 mb-4">
+                <div class="input-group col-lg-6 mb-4">
                   <div class="input-group-prepend">
                     <span class="input-group-text bg-white px-4 border-md border-right-0">
                       <i class="fa fa-mobile text-muted"></i>
                     </span>
                   </div>
-                  <%= f.number_field :phone, autofocus: true, :placeholder => "Teléfono Móvil", :class => "form-control bg-white border-md border-left-0 pl-3"%>
+                  <%= f.number_field :phone, autofocus: true, :placeholder => "Teléfono Móvil", :class => "form-control bg-white border-left-0 border-md" %>
+                </div>
+                
+                <!-- Fecha de Nacimiento -->
+                <div class="input-group col-lg-12">
+                  <sup>Fecha de Nacimiento</sup>
+                </div>
+                <div class="input-group col-lg-12 mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                      <i class="fa fa-calendar text-muted"></i>
+                    </span>
+                  </div>
+                  <%= f.date_field :birthday, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), :placeholder => "Fecha de Nacimiento", :class => "form-control bg-white border-md border-left-0 pl-3" %>
                 </div>
 
                 <!-- Correo Electronico -->
