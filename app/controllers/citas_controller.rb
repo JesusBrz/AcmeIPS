@@ -18,7 +18,11 @@ class CitasController < ApplicationController
     def create
         @cita = Cita.new(cita_params)
         if @cita.save
-            redirect_to citas_path
+            if user_signed_in?
+                redirect_to citas_path
+            else
+                redirect_to new_user_registration_path
+            end
         else
             render 'new'
         end
