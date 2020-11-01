@@ -73,7 +73,7 @@
                                             <i class="fa fa-user text-muted"></i>
                                         </span>
                                     </div>
-                                    <%= form.collection_select :nombre_medico, User.where(rol: "medico"), :id, :formatted_name, {:prompt => false}, class: "form-control" %>    
+                                    <%= form.collection_select :nombre_medico, User.where(rol: "medico"), :formatted_name, :formatted_name, {:prompt => false}, class: "form-control" %>    
                                 </div>
 
                                 <!-- Divider Text -->

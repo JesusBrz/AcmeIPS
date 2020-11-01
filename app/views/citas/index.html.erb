@@ -19,7 +19,7 @@
             <h1>Reporte de Citas Agendadas</h1>
 
             <div class="table-responsive">
-                <table class="table table-sm table-striped">
+                <table class="table table-sm table-striped justify-content-center">
                     <tr>
                         <th>Nombre del Paciente</th>
                         <th>Documento del Paciente</th>
@@ -28,6 +28,8 @@
                         <th>Fecha</th>
                         <th>Hora</th>
                         <th>Tipo</th>
+                        <th></th>
+                        <th></th>
                         <th></th>
                     </tr>
 
@@ -40,9 +42,9 @@
                         <td><%= cita.fecha %></td>
                         <td><%= cita.hora.strftime("%H:%M") %></td>
                         <td><%= cita.tipo %></td>
-                        <td><%= link_to 'Show', cita_path(cita) %></td>
-                        <td><%= link_to 'Edit', edit_cita_path(cita) %></td>
-                        <td><%= link_to 'Destroy', cita, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
+                        <td><%= link_to 'Mostrar', cita_path(cita) %></td>
+                        <td><%= link_to 'Reprogramar', edit_cita_path(cita) %></td>
+                        <td><%= link_to 'Cancelar', cita, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
                     </tr>
                     <% end %>
                 </table>
