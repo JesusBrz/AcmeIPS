@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_000118) do
+ActiveRecord::Schema.define(version: 2020_11_01_004731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "citas", force: :cascade do |t|
-    t.string "nombre_paciente"
-    t.string "documento_paciente"
-    t.string "telefono_paciente"
-    t.string "nombre_medico"
-    t.date "fecha"
-    t.time "hora"
-    t.string "tipo", default: "Web"
+    t.string "nombre_paciente", default: "", null: false
+    t.string "documento_paciente", default: "", null: false
+    t.string "telefono_paciente", default: ""
+    t.string "nombre_medico", null: false
+    t.date "fecha", null: false
+    t.time "hora", null: false
+    t.string "tipo", default: "Web", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,16 +32,18 @@ ActiveRecord::Schema.define(version: 2020_10_27_000118) do
     t.string "encrypted_password", default: "", null: false
     t.string "name", default: "", null: false
     t.string "surname", default: "", null: false
+    t.string "document", default: "", null: false
+    t.date "birthday", null: false
+    t.string "phone", default: ""
+    t.string "rol", default: "usuario", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "document"
-    t.date "birthday"
-    t.string "phone"
-    t.string "rol", default: "usuario"
+    t.index ["document"], name: "index_users_on_document", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
