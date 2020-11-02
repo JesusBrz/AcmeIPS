@@ -10,11 +10,6 @@ class Ability
       can :manage, :all
     elsif user.rol == "medico"
       can :read, Cita
-    elsif user.rol == "secretario"
-      can :read, Cita
-      can :show, Cita
-      can :edit, Cita
-      can :create, Cita
     elsif user.rol == "usuario"
       can :create, Cita
     end
