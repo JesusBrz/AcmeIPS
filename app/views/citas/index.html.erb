@@ -10,48 +10,104 @@
 
 <body>
     <main>
+        <!-- OnLoad Page Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Launch demo modal
+        </button>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <% if can? :create, Cita %>
-            <%= link_to 'Agendar una Cita', new_cita_path, :class => "btn btn-primary"%>
+        <%= link_to 'Agendar una Cita', new_cita_path, :class => "btn btn-primary"%>
         <% end %>
 
         <% if can? :read, Cita %>
-            <h1>Reporte de Citas Agendadas</h1>
+        <h1>Reporte de Citas Agendadas</h1>
 
-            <div class="table-responsive">
-                <table class="table table-sm table-striped justify-content-center">
-                    <tr>
-                        <th>Nombre del Paciente</th>
-                        <th>Documento del Paciente</th>
-                        <th>Teléfono del Paciente</th>
-                        <th>Nombre del Médico</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Tipo</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
+        <div class="table-responsive">
+            <table class="table table-sm table-striped justify-content-center">
+                <tr>
+                    <th>Nombre del Paciente</th>
+                    <th>Documento del Paciente</th>
+                    <th>Teléfono del Paciente</th>
+                    <th>Nombre del Médico</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Tipo</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
 
-                    <% @cita.each do |cita| %>
-                    <tr>
-                        <td><%= cita.nombre_paciente %></td>
-                        <td><%= cita.documento_paciente %></td>
-                        <td><%= cita.telefono_paciente %></td>
-                        <td><%= cita.nombre_medico %></td>
-                        <td><%= cita.fecha %></td>
-                        <td><%= cita.hora.strftime("%H:%M") %></td>
-                        <td><%= cita.tipo %></td>
-                        <td><%= link_to 'Mostrar', cita_path(cita) %></td>
-                        <td><%= link_to 'Reprogramar', edit_cita_path(cita) %></td>
-                        <td><%= link_to 'Cancelar', cita, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
-                    </tr>
-                    <% end %>
-                </table>
-            </div>
+                <% @cita.each do |cita| %>
+                <tr>
+                    <td><%= cita.nombre_paciente %></td>
+                    <td><%= cita.documento_paciente %></td>
+                    <td><%= cita.telefono_paciente %></td>
+                    <td><%= cita.nombre_medico %></td>
+                    <td><%= cita.fecha %></td>
+                    <td><%= cita.hora.strftime("%H:%M") %></td>
+                    <td><%= cita.tipo %></td>
+                    <td><%= link_to 'Mostrar', cita_path(cita) %></td>
+                    <td><%= link_to 'Reprogramar', edit_cita_path(cita) %></td>
+                    <td><%= link_to 'Cancelar', cita, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
+                </tr>
+                <% end %>
+            </table>
+        </div>
+        <% end %>
+        <%if user_signed_in?%>
+        <h1>Mis Citas Médicas</h1>
+
+        <div class="table-responsive">
+            <table class="table table-sm table-striped justify-content-center">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Documento</th>
+                    <th>Teléfono</th>
+                    <th>Médico</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <% @cita.where(:documento_paciente => current_user.document).each do |cita| %>
+                <tr>
+                    <td><%= cita.nombre_paciente %></td>
+                    <td><%= cita.documento_paciente %></td>
+                    <td><%= cita.telefono_paciente %></td>
+                    <td><%= cita.nombre_medico %></td>
+                    <td><%= cita.fecha %></td>
+                    <td><%= cita.hora.strftime("%H:%M") %></td>
+                    <td><%= link_to 'Mostrar', cita_path(cita) %></td>
+                    <td><%= link_to 'Reprogramar', edit_cita_path(cita) %></td>
+                    <td><%= link_to 'Cancelar', cita, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
+                </tr>
+                <% end %>
+            </table>
+        </div>
         <% end %>
     </main>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'modal', 'data-turbolinks-track': 'reload' %>
 </body>
 
 </html>
