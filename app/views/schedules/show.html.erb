@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @schedule.day %>
+</p>
+
+<p>
+  <strong>Hour:</strong>
+  <%= @schedule.hour.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Documento paciente:</strong>
+  <%= @schedule.documento_paciente %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>
