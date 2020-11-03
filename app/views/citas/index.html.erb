@@ -1,87 +1,39 @@
-<!DOCTYPE html>
-<html lang="es">
+<p id="notice"><%= notice %></p>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag 'citas', 'data-turbolinks-track': 'reload' %>
-    <title>Citas</title>
-</head>
+<h1>Citas</h1>
 
-<body>
-    <main>
-        <% if can? :create, Cita %>
-        <%= link_to 'Agendar una Cita', new_cita_path, :class => "btn btn-primary"%>
-        <% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre paciente</th>
+      <th>Documento paciente</th>
+      <th>Telefono paciente</th>
+      <th>Nombre medico</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Tipo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-        <% if can? :read, Cita %>
-        <h1>Reporte de Citas Agendadas</h1>
+  <tbody>
+    <% @citas.each do |cita| %>
+      <tr>
+        <td><%= cita.nombre_paciente %></td>
+        <td><%= cita.documento_paciente %></td>
+        <td><%= cita.telefono_paciente %></td>
+        <td><%= cita.nombre_medico %></td>
+        <td><%= cita.fecha %></td>
+        <td><%= cita.hora %></td>
+        <td><%= cita.tipo %></td>
+        <td><%= link_to 'Show', cita %></td>
+        <td><%= link_to 'Edit', edit_cita_path(cita) %></td>
+        <td><%= link_to 'Destroy', cita, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-        <div class="table-responsive">
-            <table class="table table-sm table-striped justify-content-center">
-                <tr>
-                    <th>Nombre del Paciente</th>
-                    <th>Documento del Paciente</th>
-                    <th>Teléfono del Paciente</th>
-                    <th>Nombre del Médico</th>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th>Tipo</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
+<br>
 
-                <% @cita.each do |cita| %>
-                <tr>
-                    <td><%= cita.nombre_paciente %></td>
-                    <td><%= cita.documento_paciente %></td>
-                    <td><%= cita.telefono_paciente %></td>
-                    <td><%= cita.nombre_medico %></td>
-                    <td><%= cita.fecha %></td>
-                    <td><%= cita.hora.strftime("%H:%M") %></td>
-                    <td><%= cita.tipo %></td>
-                    <td><%= link_to 'Mostrar', cita_path(cita) %></td>
-                    <td><%= link_to 'Reprogramar', edit_cita_path(cita) %></td>
-                    <td><%= link_to 'Cancelar', cita, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
-                </tr>
-                <% end %>
-            </table>
-        </div>
-        <% end %>
-        <%if user_signed_in?%>
-        <h1>Mis Citas Médicas</h1>
-
-        <div class="table-responsive">
-            <table class="table table-sm table-striped justify-content-center">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Documento</th>
-                    <th>Teléfono</th>
-                    <th>Médico</th>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <% @cita.where(:documento_paciente => current_user.document).each do |cita| %>
-                <tr>
-                    <td><%= cita.nombre_paciente %></td>
-                    <td><%= cita.documento_paciente %></td>
-                    <td><%= cita.telefono_paciente %></td>
-                    <td><%= cita.nombre_medico %></td>
-                    <td><%= cita.fecha %></td>
-                    <td><%= cita.hora.strftime("%H:%M") %></td>
-                    <td><%= link_to 'Mostrar', cita_path(cita) %></td>
-                    <td><%= link_to 'Reprogramar', edit_cita_path(cita) %></td>
-                    <td><%= link_to 'Cancelar', cita, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
-                </tr>
-                <% end %>
-            </table>
-        </div>
-        <% end %>
-    </main>
-</body>
-
-</html>
+<%= link_to 'New Cita', new_cita_path %>

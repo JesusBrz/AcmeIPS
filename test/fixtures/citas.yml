@@ -5,8 +5,8 @@ one:
   documento_paciente: MyString
   telefono_paciente: MyString
   nombre_medico: MyString
-  fecha: 2020-10-25
-  hora: 2020-10-25 19:15:29
+  fecha: 2020-11-03
+  hora: 2020-11-03 10:40:39
   tipo: MyString
 
 two:
@@ -14,6 +14,6 @@ two:
   documento_paciente: MyString
   telefono_paciente: MyString
   nombre_medico: MyString
-  fecha: 2020-10-25
-  hora: 2020-10-25 19:15:29
+  fecha: 2020-11-03
+  hora: 2020-11-03 10:40:39
   tipo: MyString

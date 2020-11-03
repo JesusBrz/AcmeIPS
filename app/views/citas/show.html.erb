@@ -1,46 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<p id="notice"><%= notice %></p>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag 'citas', 'data-turbolinks-track': 'reload' %>
-    <title>Cita #<%= @cita.id %></title>
-</head>
+<p>
+  <strong>Nombre paciente:</strong>
+  <%= @cita.nombre_paciente %>
+</p>
 
-<body>
-    <main>
-        <% if can? :show, Cita%>
-            <p>
-                <strong>Nombre del Paciente:</strong>
-                <%= @cita.nombre_paciente %>
-            </p>
-            <p>
-                <strong>Docuemnto del Paciente:</strong>
-                <%= @cita.documento_paciente %>
-            </p>
-            <p>
-                <strong>Teléfono del Paciente:</strong>
-                <%= @cita.telefono_paciente %>
-            </p>
-            <p>
-                <strong>Nombre del Médico:</strong>
-                <%= @cita.nombre_medico %>
-            </p>
-            <p>
-                <strong>Fecha de la cita:</strong>
-                <%= @cita.fecha %>
-            </p>
-            <p>
-                <strong>Hora de la cita:</strong>
-                <%= @cita.hora %>
-            </p>
-            <p>
-                <strong>Tipo de cita:</strong>
-                <%= @cita.tipo %>
-            </p>
-        <% end %>
-    </main>
-</body>
+<p>
+  <strong>Documento paciente:</strong>
+  <%= @cita.documento_paciente %>
+</p>
 
-</html>
+<p>
+  <strong>Telefono paciente:</strong>
+  <%= @cita.telefono_paciente %>
+</p>
+
+<p>
+  <strong>Nombre medico:</strong>
+  <%= @cita.nombre_medico %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @cita.fecha %>
+</p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @cita.hora %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @cita.tipo %>
+</p>
+
+<%= link_to 'Edit', edit_cita_path(@cita) %> |
+<%= link_to 'Back', citas_path %>
