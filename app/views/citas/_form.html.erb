@@ -1,150 +1,47 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= @title %></title>
-</head>
-
-<body>
-  <main>
-    <% if cita.errors.any? %>
+<%= form_with(model: cita, local: true) do |form| %>
+  <% if cita.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(cita.errors.count, "error") %> prohibió que esta cita se guarde:</h2>
+      <h2><%= pluralize(cita.errors.count, "error") %> prohibited this cita from being saved:</h2>
+
       <ul>
         <% cita.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
-    <% end %>
-    <%= form_with(model: cita, local: true) do |form| %>
-    <div class="container">
-      <div class="row py-4 align-items-center">
-        <div class="col-md-5 pr-lg-5 mb-2 mb-md-0">
-          <h1 style="text-align: center">
-            <%= @title %>
-            <% if cita.created_at != cita.updated_at %>
-            (Reprogramada)
-            <% end %>
-          </h1><br>
-          <%= image_tag("citas#{rand(5)}.svg", :class => "img-fluid mb-3 d-none d-md-block") %>
-        </div>
+  <% end %>
 
-        <!-- Agendar Citas Form -->
-        <div class="col-md-7 col-lg-6 ml-auto">
-          <form action="#">
-            <div class="row">
+  <div class="field">
+    <%= form.label :nombre_paciente %>
+    <%= form.text_field :nombre_paciente %>
+  </div>
 
-              <!-- Nombre Completo del Paciente -->
-              <div class="input-group col-lg-12 mb-4">
-                <div class="input-group-prepend">
-                  <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-user text-muted"></i>
-                  </span>
-                </div>
-                <% if current_user %>
-                <%= form.text_field :nombre_paciente, required: true, value:current_user.name + ' ' + current_user.surname, :placeholder => "Nombre Completo del Paciente", :class => "form-control bg-white border-left-0 border-md" %>
-                <% else %>
-                <%= form.text_field :nombre_paciente, required: true, :placeholder => "Nombre Completo del Paciente", :class => "form-control bg-white border-left-0 border-md" %>
-                <% end %>
-              </div>
+  <div class="field">
+    <%= form.label :documento_paciente %>
+    <%= form.text_field :documento_paciente %>
+  </div>
 
-              <!-- Documento de Identidad -->
-              <div class="input-group col-lg-6 mb-4">
-                <div class="input-group-prepend">
-                  <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-id-card text-muted"></i>
-                  </span>
-                </div>
-                <% if current_user %>
-                <%= form.text_field :documento_paciente, required: true, value:current_user.document, :placeholder => "Documento de Identidad", :class => "form-control bg-white border-left-0 border-md"%>
-                <% else %>
-                <%= form.text_field :documento_paciente, required: true, :placeholder => "Documento de Identidad", :class => "form-control bg-white border-left-0 border-md"%>
-                <% end %>
-              </div>
+  <div class="field">
+    <%= form.label :telefono_paciente %>
+    <%= form.text_field :telefono_paciente %>
+  </div>
 
-              <!-- Teléfono Móvil -->
-              <div class="input-group col-lg-6 mb-4">
-                <div class="input-group-prepend">
-                  <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-mobile text-muted"></i>
-                  </span>
-                </div>
-                <% if current_user %>
-                <%= form.telephone_field :telefono_paciente, required: true, value:current_user.phone, :placeholder => "Teléfono Móvil del Paciente", :class => "form-control bg-white border-md border-left-0 pl-3"%>
-                <% else %>
-                <%= form.telephone_field :telefono_paciente, required: true, :placeholder => "Teléfono Móvil del Paciente", :class => "form-control bg-white border-md border-left-0 pl-3"%>
-                <% end %>
-              </div>
+  <div class="field">
+    <%= form.label :nombre_medico %>
+    <%= form.text_field :nombre_medico %>
+  </div>
 
-              <!-- Nombre Completo del Médico (Dropdown) -->
-              <div class="input-group col-lg-12 mb-4">
-                <div class="input-group-prepend">
-                  <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-user text-muted"></i>
-                  </span>
-                </div>
-                <%= form.collection_select :nombre_medico, User.where(rol: "medico"), :formatted_name, :formatted_name, {:prompt => false}, class: "form-control" %>
-              </div>
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.datetime_select :fecha %>
+  </div>
 
-              <!-- Divider Text -->
-              <div class="form-group col-lg-12 mx-auto d-flex align-items-center mb-4">
-                <span class="px-2 medium text-muted font-weight-bold text-muted">Fecha y Hora de la
-                  Cita</span>
-              </div>
+  <div class="field">
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo %>
+  </div>
 
-              <!-- Fecha de la Cita -->
-              <div class="input-group col-lg-6 mb-4">
-                <div class="input-group-prepend">
-                  <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-calendar text-muted"></i>
-                  </span>
-                </div>
-                <% if @title == "Reprogramar la Cita" %>
-                  <%= form.date_field :fecha, min: Date.today + 21, max: Date.today + 81, :class => "form-control bg-white border-left-0 border-md" %>
-                <% else %>
-                  <%= form.date_field :fecha, min: Date.today, :class => "form-control bg-white border-left-0 border-md" %>
-                <% end %>
-                
-              </div>
-
-              <!-- Hora de la Cita -->
-              <div class="input-group col-lg-6 mb-4">
-                <div class="input-group-prepend">
-                  <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-clock text-muted"></i>
-                  </span>
-                </div>
-                <%= form.time_field :hora, :class => "form-control bg-white border-left-0 border-md" %>
-              </div>
-
-              <%if user_signed_in?%>
-              <%if current_user.rol == "admin" || current_user.rol == "medico"%>
-              <!-- Tipo de Cita (Dropdown) -->
-              <div class="input-group col-lg-12 mb-4">
-                <div class="input-group-prepend">
-                  <span class="input-group-text bg-white px-4 border-md border-right-0">
-                    <i class="fa fa-user text-muted"></i>
-                  </span>
-                </div>
-                <%= form.text_field :tipo, required: true, :placeholder => "Tipo de Cita", :value => "Web", :class => "form-control bg-white border-left-0 border-md" %>
-              </div>
-              <% end %>
-              <% end %>
-
-              <div class="form-group col-lg-12 mx-auto mb-0">
-                <%= form.submit @button, :class => "btn btn-primary btn-block py-2" %>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <% end %>
-  </main>
-
-</body>
-
-</html>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

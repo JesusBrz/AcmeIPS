@@ -1,13 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  day: 2020-11-05
-  hour: 2020-11-05 15:05:42
+  fecha: 2020-11-05 18:05:03
   documento_paciente: MyString
   cita: one
 
 two:
-  day: 2020-11-05
-  hour: 2020-11-05 15:05:42
+  fecha: 2020-11-05 18:05:03
   documento_paciente: MyString
   cita: two

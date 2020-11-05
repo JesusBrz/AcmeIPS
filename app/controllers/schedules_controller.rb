@@ -5,8 +5,6 @@ class SchedulesController < ApplicationController
   # GET /schedules.json
   def index
     @schedules = Schedule.all
-    @schedules_by_date = @schedules.group_by(&:day)
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   # GET /schedules/1
@@ -71,6 +69,6 @@ class SchedulesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def schedule_params
-      params.require(:schedule).permit(:day, :hour, :documento_paciente, :cita_id)
+      params.require(:schedule).permit(:fecha, :documento_paciente, :cita_id)
     end
 end
