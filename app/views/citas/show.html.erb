@@ -1,39 +1,47 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<p>
-  <strong>Nombre paciente:</strong>
-  <%= @cita.nombre_paciente %>
-</p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 
-<p>
-  <strong>Documento paciente:</strong>
-  <%= @cita.documento_paciente %>
-</p>
+<body>
+  <p>
+    <strong>Nombre paciente:</strong>
+    <%= @cita.nombre_paciente %>
+  </p>
 
-<p>
-  <strong>Telefono paciente:</strong>
-  <%= @cita.telefono_paciente %>
-</p>
+  <p>
+    <strong>Documento paciente:</strong>
+    <%= @cita.documento_paciente %>
+  </p>
 
-<p>
-  <strong>Nombre medico:</strong>
-  <%= @cita.nombre_medico %>
-</p>
+  <p>
+    <strong>Telefono paciente:</strong>
+    <%= @cita.telefono_paciente %>
+  </p>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @cita.fecha %>
-</p>
+  <p>
+    <strong>Nombre medico:</strong>
+    <%= @cita.nombre_medico %>
+  </p>
 
-<p>
-  <strong>Hora:</strong>
-  <%= @cita.hora %>
-</p>
+  <p>
+    <strong>Fecha:</strong>
+    <%= @cita.fecha %>
+  </p>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @cita.tipo %>
-</p>
+  <p>
+    <strong>Hora:</strong>
+    <%= @cita.hora %>
+  </p>
 
-<%= link_to 'Edit', edit_cita_path(@cita) %> |
-<%= link_to 'Back', citas_path %>
+  <p>
+    <strong>Tipo:</strong>
+    <%= @cita.tipo %>
+  </p>
+</body>
+
+</html>

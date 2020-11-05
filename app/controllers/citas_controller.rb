@@ -25,10 +25,10 @@ class CitasController < ApplicationController
   # POST /citas.json
   def create
     @cita = Cita.new(cita_params)
-
     respond_to do |format|
       if @cita.save
-        format.html { redirect_to @cita, notice: 'Cita was successfully created.' }
+        @schedule = Schedule.create(day: @cita.fecha, hour: @cita.hora, documento_paciente: @cita.documento_paciente, cita_id: @cita.id)
+        format.html { redirect_to @cita, notice: 'La cita fue creada con éxito.' }
         format.json { render :show, status: :created, location: @cita }
       else
         format.html { render :new }
@@ -42,7 +42,8 @@ class CitasController < ApplicationController
   def update
     respond_to do |format|
       if @cita.update(cita_params)
-        format.html { redirect_to @cita, notice: 'Cita was successfully updated.' }
+        @schedule = Schedule.update(day: @cita.fecha, hour: @cita.hora)
+        format.html { redirect_to @cita, notice: 'La cita fue reprogramada con éxito.' }
         format.json { render :show, status: :ok, location: @cita }
       else
         format.html { render :edit }
@@ -54,9 +55,13 @@ class CitasController < ApplicationController
   # DELETE /citas/1
   # DELETE /citas/1.json
   def destroy
+    @schedules = Schedule.where(cita_id: @cita.id)
+    @schedules.each do |schedule|
+      schedule.destroy
+    end
     @cita.destroy
     respond_to do |format|
-      format.html { redirect_to citas_url, notice: 'Cita was successfully destroyed.' }
+      format.html { redirect_to citas_url, notice: 'La cita fue cancelada con éxito.' }
       format.json { head :no_content }
     end
   end
