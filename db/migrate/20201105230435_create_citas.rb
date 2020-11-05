@@ -5,8 +5,7 @@ class CreateCitas < ActiveRecord::Migration[6.0]
       t.string :documento_paciente
       t.string :telefono_paciente
       t.string :nombre_medico
-      t.date :fecha
-      t.time :hora
+      t.timestamp :fecha
       t.string :tipo
 
       t.timestamps
