@@ -14,6 +14,7 @@ class SchedulesTest < ApplicationSystemTestCase
     visit schedules_url
     click_on "New Schedule"
 
+    fill_in "Cita", with: @schedule.cita_id
     fill_in "Day", with: @schedule.day
     fill_in "Documento paciente", with: @schedule.documento_paciente
     fill_in "Hour", with: @schedule.hour
@@ -27,6 +28,7 @@ class SchedulesTest < ApplicationSystemTestCase
     visit schedules_url
     click_on "Edit", match: :first
 
+    fill_in "Cita", with: @schedule.cita_id
     fill_in "Day", with: @schedule.day
     fill_in "Documento paciente", with: @schedule.documento_paciente
     fill_in "Hour", with: @schedule.hour

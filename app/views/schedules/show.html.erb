@@ -7,12 +7,17 @@
 
 <p>
   <strong>Hour:</strong>
-  <%= @schedule.hour.strftime("%H:%M") %>
+  <%= @schedule.hour %>
 </p>
 
 <p>
   <strong>Documento paciente:</strong>
   <%= @schedule.documento_paciente %>
+</p>
+
+<p>
+  <strong>Cita:</strong>
+  <%= @schedule.cita_id %>
 </p>
 
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
