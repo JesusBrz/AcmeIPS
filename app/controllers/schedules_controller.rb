@@ -5,6 +5,8 @@ class SchedulesController < ApplicationController
   # GET /schedules.json
   def index
     @schedules = Schedule.all
+    @schedules_by_date = @schedules.group_by()
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   # GET /schedules/1
