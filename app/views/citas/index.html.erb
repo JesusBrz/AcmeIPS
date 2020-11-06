@@ -15,12 +15,14 @@
         <div class="col">
           <h1>Bienvenido</h1>
           <h5 class="text-justify">Ante la inminente llegada del COVID-19 a Colombia, nosotros velamos por su
-            seguridad para ellos hemos creado este portal para agendar su cita sin tener que acercarse a
+            seguridad para ello hemos creado este portal para agendar su cita sin tener que acercarse a
             nuestras instalaciones, recuerda que también tenemos agendamiento vía telefónico. A la hora de
             agendar la cita puede elegir el día y la hora que se ajuste a su agenda; tenga en cuenta que el
-            día de la cita médica debe ir de manera presencial. Una vez agendada su cita se le harán llegar
-            dos documentos a su correo electrónico, uno de estos contiene un identificador único que le
-            permitirá el acceso a nuestras instalaciones.</h5>
+            día de la cita médica debe ir de manera presencial, tambien contamos con citas virtuales.
+            <!-- CITAS VIRTUALES -> COMO FUNCIONAN DEFINICIÓN --> Una vez agendada su cita se le harán llegar dos
+            documentos a su correo electrónico, el primero contiene un identificador único, un código QR que le
+            permitirá el acceso a nuestras instalaciones, el segundo docuemnto contiene información acerca de la cita.
+          </h5>
           <p>Solicite su cita aquí</p>
           <% if can? :create, Cita %>
           <%= link_to 'Agendar una Cita', new_cita_path, :class => "btn btn-primary w-100"%>
