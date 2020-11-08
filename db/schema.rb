@@ -10,25 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_230503) do
+ActiveRecord::Schema.define(version: 2020_11_08_145046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "citas", force: :cascade do |t|
-    t.string "nombre_paciente"
-    t.string "documento_paciente"
-    t.string "telefono_paciente"
-    t.string "nombre_medico"
-    t.datetime "fecha"
-    t.string "tipo"
+    t.string "nombre_paciente", null: false
+    t.string "documento_paciente", null: false
+    t.string "correo_paciente", null: false
+    t.string "telefono_paciente", null: false
+    t.string "nombre_medico", null: false
+    t.date "dia", null: false
+    t.time "hora", null: false
+    t.string "tipo", default: "web", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.datetime "fecha"
-    t.string "documento_paciente"
+    t.string "documento_paciente", null: false
+    t.date "dia", null: false
+    t.time "hora", null: false
     t.bigint "cita_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
