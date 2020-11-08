@@ -5,8 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Fecha</th>
       <th>Documento paciente</th>
+      <th>Dia</th>
+      <th>Hora</th>
       <th>Cita</th>
       <th colspan="3"></th>
     </tr>
@@ -15,8 +16,9 @@
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
-        <td><%= schedule.fecha %></td>
         <td><%= schedule.documento_paciente %></td>
+        <td><%= schedule.dia %></td>
+        <td><%= schedule.hora %></td>
         <td><%= schedule.cita_id %></td>
         <td><%= link_to 'Show', schedule %></td>
         <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>

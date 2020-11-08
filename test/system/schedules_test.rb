@@ -15,8 +15,9 @@ class SchedulesTest < ApplicationSystemTestCase
     click_on "New Schedule"
 
     fill_in "Cita", with: @schedule.cita_id
+    fill_in "Dia", with: @schedule.dia
     fill_in "Documento paciente", with: @schedule.documento_paciente
-    fill_in "Fecha", with: @schedule.fecha
+    fill_in "Hora", with: @schedule.hora
     click_on "Create Schedule"
 
     assert_text "Schedule was successfully created"
@@ -28,8 +29,9 @@ class SchedulesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Cita", with: @schedule.cita_id
+    fill_in "Dia", with: @schedule.dia
     fill_in "Documento paciente", with: @schedule.documento_paciente
-    fill_in "Fecha", with: @schedule.fecha
+    fill_in "Hora", with: @schedule.hora
     click_on "Update Schedule"
 
     assert_text "Schedule was successfully updated"
