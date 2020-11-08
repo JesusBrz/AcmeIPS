@@ -12,13 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :fecha %>
-    <%= form.datetime_field :fecha, :class => "form-control" %>
+    <%= form.label :documento_paciente %>
+    <%= form.text_field :documento_paciente %>
   </div>
 
   <div class="field">
-    <%= form.label :documento_paciente %>
-    <%= form.text_field :documento_paciente, :class => "form-control" %>
+    <%= form.label :dia %>
+    <%= form.date_select :dia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hora %>
+    <%= form.time_select :hora %>
   </div>
 
   <div class="field">
