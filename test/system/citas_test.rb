@@ -14,8 +14,10 @@ class CitasTest < ApplicationSystemTestCase
     visit citas_url
     click_on "New Cita"
 
+    fill_in "Correo paciente", with: @cita.correo_paciente
+    fill_in "Dia", with: @cita.dia
     fill_in "Documento paciente", with: @cita.documento_paciente
-    fill_in "Fecha", with: @cita.fecha
+    fill_in "Hora", with: @cita.hora
     fill_in "Nombre medico", with: @cita.nombre_medico
     fill_in "Nombre paciente", with: @cita.nombre_paciente
     fill_in "Telefono paciente", with: @cita.telefono_paciente
@@ -30,8 +32,10 @@ class CitasTest < ApplicationSystemTestCase
     visit citas_url
     click_on "Edit", match: :first
 
+    fill_in "Correo paciente", with: @cita.correo_paciente
+    fill_in "Dia", with: @cita.dia
     fill_in "Documento paciente", with: @cita.documento_paciente
-    fill_in "Fecha", with: @cita.fecha
+    fill_in "Hora", with: @cita.hora
     fill_in "Nombre medico", with: @cita.nombre_medico
     fill_in "Nombre paciente", with: @cita.nombre_paciente
     fill_in "Telefono paciente", with: @cita.telefono_paciente
