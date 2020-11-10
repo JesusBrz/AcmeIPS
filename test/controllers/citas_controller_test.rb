@@ -24,7 +24,8 @@ class CitasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show cita" do
-    get cita_url(@cita)
+    cita = citas(:one)
+    get cita_url(cita)
     assert_response :success
   end
 
