@@ -6,6 +6,7 @@ class CreateCitas < ActiveRecord::Migration[6.0]
       t.string :correo_paciente,    null: false
       t.string :telefono_paciente,  null: false
       t.string :nombre_medico,      null: false
+      t.string :documento_medico,   null: false
       t.date :dia,                  null: false
       t.time :hora,                 null: false
       t.string :tipo,               null: false, default: "web"
