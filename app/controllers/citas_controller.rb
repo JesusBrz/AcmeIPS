@@ -28,7 +28,7 @@ class CitasController < ApplicationController
 
     respond_to do |format|
       if @cita.save
-        @schedule = Schedule.create(documento_paciente: @cita.documento_paciente,  dia: @cita.dia, hora: @cita.hora, cita_id: @cita.id)
+        @schedule = Schedule.create(documento_paciente: @cita.documento_paciente,  documento_medico: @cita.documento_medico, dia: @cita.dia, hora: @cita.hora, cita_id: @cita.id)
         format.html { redirect_to @cita, notice: 'La cita fue creada con éxito.' }
         format.json { render :show, status: :created, location: @cita }
       else
@@ -62,7 +62,7 @@ class CitasController < ApplicationController
     end
     @cita.destroy
     respond_to do |format|
-      format.html { redirect_to citas_url, notice: 'Cita was successfully destroyed.' }
+      format.html { redirect_to citas_url, notice: 'La Cita fue cancelada con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +75,6 @@ class CitasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cita_params
-      params.require(:cita).permit(:nombre_paciente, :documento_paciente, :correo_paciente, :telefono_paciente, :nombre_medico, :dia, :hora, :tipo)
+      params.require(:cita).permit(:nombre_paciente, :documento_paciente, :correo_paciente, :telefono_paciente, :nombre_medico, :documento_medico, :dia, :hora, :tipo)
     end
 end
