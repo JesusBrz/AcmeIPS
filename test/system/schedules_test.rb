@@ -16,6 +16,7 @@ class SchedulesTest < ApplicationSystemTestCase
 
     fill_in "Cita", with: @schedule.cita_id
     fill_in "Dia", with: @schedule.dia
+    fill_in "Documento medico", with: @schedule.documento_medico
     fill_in "Documento paciente", with: @schedule.documento_paciente
     fill_in "Hora", with: @schedule.hora
     click_on "Create Schedule"
@@ -30,6 +31,7 @@ class SchedulesTest < ApplicationSystemTestCase
 
     fill_in "Cita", with: @schedule.cita_id
     fill_in "Dia", with: @schedule.dia
+    fill_in "Documento medico", with: @schedule.documento_medico
     fill_in "Documento paciente", with: @schedule.documento_paciente
     fill_in "Hora", with: @schedule.hora
     click_on "Update Schedule"
