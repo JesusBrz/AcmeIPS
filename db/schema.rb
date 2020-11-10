@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_08_145046) do
+ActiveRecord::Schema.define(version: 2020_11_10_143600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_11_08_145046) do
     t.string "correo_paciente", null: false
     t.string "telefono_paciente", null: false
     t.string "nombre_medico", null: false
+    t.string "documento_medico", null: false
     t.date "dia", null: false
     t.time "hora", null: false
     t.string "tipo", default: "web", null: false
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_11_08_145046) do
 
   create_table "schedules", force: :cascade do |t|
     t.string "documento_paciente", null: false
+    t.string "documento_medico", null: false
     t.date "dia", null: false
     t.time "hora", null: false
     t.bigint "cita_id", null: false
