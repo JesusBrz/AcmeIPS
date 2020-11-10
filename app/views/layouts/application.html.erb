@@ -29,6 +29,11 @@
           <%= link_to "Citas", citas_path, :class => "nav-link"%>
         </li>
         <%if user_signed_in?%>
+          <% if current_user.rol == "admin" || current_user.rol == "medico" %>
+          <li class="nav-item active">
+            <%= link_to "Horarios", schedules_path, :class => "nav-link"%>
+          </li>
+          <% end %>
         <li class="nav-item active dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
