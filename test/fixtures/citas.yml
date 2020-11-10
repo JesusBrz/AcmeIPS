@@ -1,21 +1,19 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  nombre_paciente: MyString
-  documento_paciente: MyString
-  correo_paciente: MyString
-  telefono_paciente: MyString
-  nombre_medico: MyString
+  nombre_paciente: Andrea
+  documento_paciente: 40865434
+  correo_paciente: atorres@unab.edu.co
+  telefono_paciente: 3012431845
+  nombre_medico: Alfonso
   dia: 2020-11-08
-  hora: 2020-11-08 09:50:25
-  tipo: MyString
+  hora: 2020-11-08 09:50:00
+  tipo: web
 
 two:
-  nombre_paciente: MyString
-  documento_paciente: MyString
-  correo_paciente: MyString
-  telefono_paciente: MyString
-  nombre_medico: MyString
+  nombre_paciente: Francisco
+  documento_paciente: 84054789
+  correo_paciente: ffuenmayor@unab.edu.co
+  telefono_paciente: 3012431846
+  nombre_medico: Alfonso
   dia: 2020-11-08
-  hora: 2020-11-08 09:50:25
-  tipo: MyString
+  hora: 2020-11-08 12:50:00
+  tipo: Telefonico

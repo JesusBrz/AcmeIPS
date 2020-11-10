@@ -1,11 +1,19 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+one:
+  email: atorres@unab.edu.co
+  encrypted_password: acarol1709
+  name: Andrea Carolina
+  surname: Torres Andrade
+  document: 40865434
+  birthday: 2000-09-17
+  phone: 3012431845
+  rol: usuario
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+two: 
+  email: ffuenmayor@unab.edu.co
+  encrypted_password: contraseña123
+  name: Francisco Javier
+  surname: Fuenmayor Torres
+  document: 84054789
+  birthday: 2000-09-12
+  phone: 3012431846
+  rol: usuario
