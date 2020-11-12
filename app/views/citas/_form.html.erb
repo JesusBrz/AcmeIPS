@@ -36,6 +36,11 @@
           <form action="#">
             <div class="row">
 
+              <!-- Label Text Form -->
+              <div class="form-group col-lg-12 mx-auto d-flex align-items-center">
+                <span class="medium text-muted font-weight-bold text-muted">Sus datos Personales</span>
+              </div>
+
               <!-- Nombre Completo del Paciente -->
               <div class="input-group col-lg-6 mb-4">
                 <div class="input-group-prepend">
@@ -44,7 +49,7 @@
                   </span>
                 </div>
                 <% if current_user %>
-                <%= form.text_field :nombre_paciente, required: true, value:current_user.name + ' ' + current_user.surname, :placeholder => "Nombre Completo del Paciente", :class => "form-control bg-white border-left-0 border-md" %>
+                <%= form.text_field :nombre_paciente, required: true, value:current_user.name + ' ' + current_user.surname, :placeholder => "Nombre Completo", :class => "form-control bg-white border-left-0 border-md" %>
                 <% else %>
                 <%= form.text_field :nombre_paciente, required: true, :placeholder => "Nombre Completo", :class => "form-control bg-white border-left-0 border-md" %>
                 <% end %>
@@ -72,7 +77,7 @@
                   </span>
                 </div>
                 <% if current_user %>
-                <%= form.text_field :correo_paciente, required: true, value:current_user.email, :placeholder => "Correo del Paciente", :class => "form-control bg-white border-left-0 border-md"%>
+                <%= form.text_field :correo_paciente, required: true, value:current_user.email, :placeholder => "Correo Electrónico", :class => "form-control bg-white border-left-0 border-md"%>
                 <% else %>
                 <%= form.text_field :correo_paciente, required: true, :placeholder => "Correo Electrónico", :class => "form-control bg-white border-left-0 border-md"%>
                 <% end %>
@@ -86,15 +91,15 @@
                   </span>
                 </div>
                 <% if current_user %>
-                <%= form.telephone_field :telefono_paciente, required: true, value:current_user.phone, :placeholder => "Teléfono Móvil del Paciente", :class => "form-control bg-white border-md border-left-0 pl-3"%>
+                <%= form.telephone_field :telefono_paciente, required: true, value:current_user.phone, :placeholder => "Teléfono Móvil", :class => "form-control bg-white border-md border-left-0 pl-3"%>
                 <% else %>
                 <%= form.telephone_field :telefono_paciente, required: true, :placeholder => "Teléfono Móvil", :class => "form-control bg-white border-md border-left-0 pl-3"%>
                 <% end %>
               </div>
 
-              <!-- Divider Text -->
+              <!-- Label Text Forms -->
               <div class="form-group col-lg-12 mx-auto d-flex align-items-center">
-                <span class="px-2 medium text-muted font-weight-bold text-muted">Seleccione el Médico</span>
+                <span class="medium text-muted font-weight-bold text-muted">Seleccione el Médico</span>
               </div>
 
               <!-- Nombre Completo del Médico (Dropdown) -->
@@ -107,10 +112,10 @@
                 <%= form.collection_select :nombre_medico, User.where(rol: "medico"), :formatted_name, :formatted_name, {:prompt => false}, class: "form-control" %>
               </div>
 
-              <!-- Divider Text -->
+              <!-- Label Text Form -->
               <div class="form-group col-lg-12 mx-auto d-flex align-items-center">
-                <span class="px-2 medium text-muted font-weight-bold text-muted">Fecha (día/mes/año) y Hora (24:00) de
-                  la Cita</span>
+                <span class="medium text-muted font-weight-bold text-muted">Fecha (día/mes/año) y Hora (24:00) de la
+                  Cita</span>
               </div>
 
               <!-- Día de la Cita -->
