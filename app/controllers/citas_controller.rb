@@ -28,8 +28,7 @@ class CitasController < ApplicationController
 
     respond_to do |format|
       if @cita.save
-        @schedule = Schedule.create(documento_paciente: @cita.documento_paciente,  documento_medico: @cita.documento_medico, dia: @cita.dia, hora: @cita.hora, cita_id: @cita.id)
-        format.html { redirect_to @cita, notice: 'La cita fue creada con éxito.' }
+        format.html { redirect_to @cita, notice: 'Cita was successfully created.' }
         format.json { render :show, status: :created, location: @cita }
       else
         format.html { render :new }
@@ -43,8 +42,7 @@ class CitasController < ApplicationController
   def update
     respond_to do |format|
       if @cita.update(cita_params)
-        @schedule = Schedule.update(dia: @cita.dia, hora: @cita.hora)
-        format.html { redirect_to @cita, notice: 'La cita fue reprogramada con éxito.' }
+        format.html { redirect_to @cita, notice: 'Cita was successfully updated.' }
         format.json { render :show, status: :ok, location: @cita }
       else
         format.html { render :edit }
@@ -56,13 +54,9 @@ class CitasController < ApplicationController
   # DELETE /citas/1
   # DELETE /citas/1.json
   def destroy
-    @schedules = Schedule.where(cita_id: @cita.id)
-    @schedules.each do |schedule|
-      schedule.destroy
-    end
     @cita.destroy
     respond_to do |format|
-      format.html { redirect_to citas_url, notice: 'La Cita fue cancelada con éxito.' }
+      format.html { redirect_to citas_url, notice: 'Cita was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +69,6 @@ class CitasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cita_params
-      params.require(:cita).permit(:nombre_paciente, :documento_paciente, :correo_paciente, :telefono_paciente, :nombre_medico, :documento_medico, :dia, :hora, :tipo)
+      params.require(:cita).permit(:nombre_paciente, :documento_paciente, :correo_paciente, :telefono_paciente, :nombre_medico, :dia, :hora, :tipo)
     end
 end

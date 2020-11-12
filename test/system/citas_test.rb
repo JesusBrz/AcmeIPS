@@ -16,7 +16,6 @@ class CitasTest < ApplicationSystemTestCase
 
     fill_in "Correo paciente", with: @cita.correo_paciente
     fill_in "Dia", with: @cita.dia
-    fill_in "Documento medico", with: @cita.documento_medico
     fill_in "Documento paciente", with: @cita.documento_paciente
     fill_in "Hora", with: @cita.hora
     fill_in "Nombre medico", with: @cita.nombre_medico
@@ -35,7 +34,6 @@ class CitasTest < ApplicationSystemTestCase
 
     fill_in "Correo paciente", with: @cita.correo_paciente
     fill_in "Dia", with: @cita.dia
-    fill_in "Documento medico", with: @cita.documento_medico
     fill_in "Documento paciente", with: @cita.documento_paciente
     fill_in "Hora", with: @cita.hora
     fill_in "Nombre medico", with: @cita.nombre_medico

@@ -17,7 +17,7 @@ class CitasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cita" do
     assert_difference('Cita.count') do
-      post citas_url, params: { cita: { correo_paciente: @cita.correo_paciente, dia: @cita.dia, documento_medico: @cita.documento_medico, documento_paciente: @cita.documento_paciente, hora: @cita.hora, nombre_medico: @cita.nombre_medico, nombre_paciente: @cita.nombre_paciente, telefono_paciente: @cita.telefono_paciente, tipo: @cita.tipo } }
+      post citas_url, params: { cita: { correo_paciente: @cita.correo_paciente, dia: @cita.dia, documento_paciente: @cita.documento_paciente, hora: @cita.hora, nombre_medico: @cita.nombre_medico, nombre_paciente: @cita.nombre_paciente, telefono_paciente: @cita.telefono_paciente, tipo: @cita.tipo } }
     end
 
     assert_redirected_to cita_url(Cita.last)
@@ -34,7 +34,7 @@ class CitasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cita" do
-    patch cita_url(@cita), params: { cita: { correo_paciente: @cita.correo_paciente, dia: @cita.dia, documento_medico: @cita.documento_medico, documento_paciente: @cita.documento_paciente, hora: @cita.hora, nombre_medico: @cita.nombre_medico, nombre_paciente: @cita.nombre_paciente, telefono_paciente: @cita.telefono_paciente, tipo: @cita.tipo } }
+    patch cita_url(@cita), params: { cita: { correo_paciente: @cita.correo_paciente, dia: @cita.dia, documento_paciente: @cita.documento_paciente, hora: @cita.hora, nombre_medico: @cita.nombre_medico, nombre_paciente: @cita.nombre_paciente, telefono_paciente: @cita.telefono_paciente, tipo: @cita.tipo } }
     assert_redirected_to cita_url(@cita)
   end
 
