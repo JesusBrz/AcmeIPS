@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :schedules
   resources :citas
   devise_for :users
   get 'home/index'
