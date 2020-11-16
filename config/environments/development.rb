@@ -36,16 +36,18 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
 
-  # Change Mail delivery to :smtp for Gmail
+  # Change Mail delivery to :smtp for ZohoMail
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'acmeips.com',
-    authentication: 'plain',
+    address: 'smtp.zoho.com',
+    port: 465,
+    domain: 'acme-ips.herokuapp.com',
+    authentication: :login,
+    ssl: true,
+    tls: true,
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: ENV["ZOHOMAIL_USERNAME"],
+    password: ENV["ZOHOMAIL_PASSWORD"]
   }
 
   config.action_mailer.perform_caching = false
