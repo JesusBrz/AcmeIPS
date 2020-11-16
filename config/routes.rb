@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'zohoverify/verifyforzoho'
   resources :citas
   devise_for :users
   get 'home/index'
