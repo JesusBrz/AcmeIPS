@@ -35,5 +35,5 @@
 yarn-debug.log*
 .yarn-integrity
 
-# Ignore Local Enviroment Variables
-/config/locales/local_env.yml
+# Ignore Enviroment Variables
+/config/local_env.yml
