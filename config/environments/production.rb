@@ -4,9 +4,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.zoho.com',
-    port: 587,
+    port: 465,
     domain: 'acme-ips.herokuapp.com',
-    authentication: 'plain',
+    authentication: :login,
+    ssl: true,
+    tls: true,
     enable_starttls_auto: true,
     user_name: ENV["ZOHOMAIL_USERNAME"],
     password: ENV["ZOHOMAIL_PASSWORD"]
