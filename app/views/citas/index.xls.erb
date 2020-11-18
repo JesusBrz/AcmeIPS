@@ -1,0 +1,30 @@
+<table>
+    <tr>
+        <th>ID de Cita</th>
+        <th>Nombre Paciente</th>
+        <th>Documento Paciente</th>
+        <th>Correo Paciente</th>
+        <th>Teléfono Paciente</th>
+        <th>Nombre Médico</th>
+        <th>Día</th>
+        <th>Hora</th>
+        <th>Tipo</th>
+        <th>Creada el</th>
+        <th>Reprogramada el</th>
+    </tr>
+    <% @citas.each do |cita| %>
+    <tr>
+        <td><%= cita.id %></td>
+        <td><%= cita.nombre_paciente %></td>
+        <td><%= cita.documento_paciente %></td>
+        <td><%= cita.correo_paciente %></td>
+        <td><%= cita.telefono_paciente %></td>
+        <td><%= cita.nombre_medico %></td>
+        <td><%= cita.dia %></td>
+        <td><%= cita.hora.strftime('%H:%M') %></td>
+        <td><%= cita.tipo %></td>
+        <td><%= cita.created_at %></td>
+        <td><%= cita.updated_at %></td>
+    </tr>
+    <% end %>
+</table>

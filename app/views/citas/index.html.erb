@@ -23,7 +23,15 @@
             permitirá el acceso a nuestras instalaciones.</h5>
           <p>Solicite su cita aquí</p>
           <% if can? :create, Cita %>
-          <%= link_to 'Agendar una Cita', new_cita_path, :class => "btn btn-primary w-100"%>
+            <%= link_to 'Agendar una Cita', new_cita_path, :class => "btn btn-primary w-100"%>
+            <%if user_signed_in?%>
+              <%if current_user.rol == "admin" %>
+              <div class="row px-3">
+                <%= link_to "Descargar Tabla de Citas (CSV)", citas_path(format: "csv"), :class => "btn btn-warning w-50"%>
+                <%= link_to "Descargar Tabla de Citas (XLS)", citas_path(format: "xls"), :class => "btn btn-success w-50"%>
+              </div>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
         <div class="col-sm d-none d-lg-block">
