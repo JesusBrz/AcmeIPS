@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  qrcode: MyString
+
+two:
+  user: two
+  qrcode: MyString
