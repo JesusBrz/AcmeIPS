@@ -1,0 +1,13 @@
+body, html {
+    height: 100%;
+}
+
+main {
+    padding: 16px;
+}
+
+.verticalcenter {
+    display: table-cell;
+    height: calc(100vh - 71px);
+    vertical-align: middle;
+}
