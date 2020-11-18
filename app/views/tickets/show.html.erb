@@ -1,14 +1,17 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
 
-<p>
-  <strong>User:</strong>
-  <%= @ticket.user_id %>
-</p>
+<head>
+  <%= stylesheet_link_tag 'tickets', 'data-turbolinks-track': 'reload' %>
+  <title>QR Code Generator</title>
+</head>
 
-<p>
-  <strong>Qrcode:</strong>
-  <%= @ticket.qrcode %>
-</p>
+<body>
+  <div class="container-fluid">
+    <div class="text-center">
+      <img id="myImg" src="https://chart.googleapis.com/chart?cht=qr&chl= + <%= @ticket.qrcode %> + &chs=400x400&chld=L|0" class="qr-code img-thumbnail img-responsive" />
+    </div>
+  </div>
+</body>
 
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+</html>
