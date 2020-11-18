@@ -2,12 +2,11 @@ body, html {
     height: 100%;
 }
 
-main {
-    padding: 16px;
+.vh {
+    height: calc(100vh - 71px);
 }
 
-.verticalcenter {
-    display: table-cell;
-    height: calc(100vh - 71px);
-    vertical-align: middle;
+.qr-code {
+    border: 20px solid black;
+    border-radius: 8px;
 }
