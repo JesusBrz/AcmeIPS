@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'zohoverify/verifyforzoho'
-  resources :citas
-  devise_for :users
-  get 'home/index'
   root 'home#index'
+  devise_for :users
+  resources :citas
+  resources :tickets, only: :show
+  get 'home/index'
+  get 'zohoverify/verifyforzoho' 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
