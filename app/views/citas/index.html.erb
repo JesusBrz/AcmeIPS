@@ -57,7 +57,7 @@
             <td><%= cita.telefono_paciente %></td>
             <td><%= cita.nombre_medico %></td>
             <td><%= cita.dia %></td>
-            <td><%= cita.hora %></td>
+            <td><%= cita.hora.strftime('%H:%M') %></td>
             <td><%= cita.tipo %></td>
             <td><%= link_to 'Mostrar', cita_path(cita) %></td>
             <td><%= link_to 'Reprogramar', edit_cita_path(cita) %></td>
