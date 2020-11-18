@@ -28,6 +28,22 @@ class CitasController < ApplicationController
 
     respond_to do |format|
       if @cita.save
+        if user_signed_in?
+          UserMailer.cita_nueva(@cita).deliver_now
+        else 
+          UserMailer.new_user_cita_nueva(@cita).deliver_now
+          @user = User.new(
+            :email => @cita.correo_paciente, 
+            :password => auto_password, 
+            :password_confirmation => auto_password, 
+            :name => give_name, 
+            :surname => give_surname, 
+            :document => @cita.documento_paciente, 
+            :birthday => Date.today, 
+            :phone => @cita.telefono_paciente
+          )
+          @user.save
+        end
         format.html { redirect_to @cita, notice: 'Cita was successfully created.' }
         format.json { render :show, status: :created, location: @cita }
       else
@@ -70,5 +86,25 @@ class CitasController < ApplicationController
     # Only allow a list of trusted parameters through.
     def cita_params
       params.require(:cita).permit(:nombre_paciente, :documento_paciente, :correo_paciente, :telefono_paciente, :nombre_medico, :dia, :hora, :tipo)
+    end
+
+    def auto_password
+      return @cita.documento_paciente
+    end
+
+    def give_name
+      if @cita.nombre_paciente.count(' ') == 1 || @cita.nombre_paciente.count(' ') == 2
+        return @cita.nombre_paciente.split[0]
+      else
+        return @cita.nombre_paciente.split[0..-3].join(' ')
+      end
+    end
+
+    def give_surname
+      if @cita.nombre_paciente.count(' ') == 1
+        return @cita.nombre_paciente.split[1]
+      else
+        return @cita.nombre_paciente.split[-2..-1].join(' ')
+      end
     end
 end
