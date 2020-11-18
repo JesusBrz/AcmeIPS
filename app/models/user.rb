@@ -11,7 +11,8 @@ class User < ApplicationRecord
 
   def send_welcome_mail
     UserMailer.welcome(self).deliver_now
-    Ticket.new(user_id: self.id, qrcode: self.document)
+    ticket = Ticket.new(user_id: self.id, qrcode: self.document)
+    ticket.save
   end
 
   def send_goodbye_mail
