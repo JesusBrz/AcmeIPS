@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+
+<body>
+    <h1>Hola, <%= @cita.nombre_paciente %>.</h1>
+    <h2>Su cita fue Reprogramada Exitosamente.</h2>
+    <p>
+        Aquí te dejamos información actualizada de la cita.
+    </p>
+    <p>
+        Usted: <%= @cita.nombre_paciente %>. <br>
+        Su Documento: <%= @cita.documento_paciente %>. <br>
+        Su Telefono: <%= @cita.telefono_paciente %>. <br>
+        Le atenderá: <%= @cita.nombre_medico %>. <br>
+        Día: <%= @cita.dia %>. <br>
+        Hora: <%= @cita.hora.strftime('%H:%M') %>. <br>
+    </p>
+    <p>¡Gracias por confiar en nosotros y que tenga un gran día!</p>
+</body>
+
+</html>

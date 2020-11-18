@@ -1,0 +1,13 @@
+Hola, <%= @cita.nombre_paciente %>.
+Su cita fue agendada Exitosamente.
+
+Aquí te dejamos información de la cita.
+
+Usted: <%= @cita.nombre_paciente %>. <br>
+Su Documento: <%= @cita.documento_paciente %>. <br>
+Su Telefono: <%= @cita.telefono_paciente %>. <br>
+Le atenderá: <%= @cita.nombre_medico %>. <br>
+Día: <%= @cita.dia %>. <br>
+Hora: <%= @cita.hora.strftime('%H:%M') %>. <br>
+
+¡Gracias por confiar en nosotros y que tenga un gran día!

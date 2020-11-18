@@ -7,7 +7,13 @@ class User < ApplicationRecord
   end
 
   after_create :send_welcome_mail
+  after_destroy :send_goodbye_mail
+
   def send_welcome_mail
     UserMailer.welcome(self).deliver_now
+  end
+
+  def send_goodbye_mail
+    UserMailer.goodbye(self).deliver_now
   end
 end

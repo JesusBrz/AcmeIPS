@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+
+<body>
+    <h1>Hola, <%= @cita.nombre_paciente %>.</h1>
+    <h2>Usuario y Contraseña para Ingresar a la plataforma</h2>
+    <p>
+        Correo: <%= @cita.correo_paciente %> <br>
+        Contraseña: <%= @cita.documento_paciente %> <br>
+    </p>
+    <p>
+        Por favor Inicia Sesión para ajustar tus datos.
+    </p>
+    <h2>Su cita fue Agendada Exitosamente</h2>
+    <p>
+        Aquí te dejamos información de la cita.
+    </p>
+    <p>
+        Usted: <%= @cita.nombre_paciente %>. <br>
+        Su Documento: <%= @cita.documento_paciente %>. <br>
+        Su Telefono: <%= @cita.telefono_paciente %>. <br>
+        Le atenderá: <%= @cita.nombre_medico %>. <br>
+        Día: <%= @cita.dia %>. <br>
+        Hora: <%= @cita.hora.strftime('%H:%M') %>. <br>
+    </p>
+    <p>¡Gracias por confiar en nosotros y que tenga un gran día!</p>
+</body>
+
+</html>
