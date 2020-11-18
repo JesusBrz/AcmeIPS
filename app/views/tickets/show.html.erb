@@ -3,14 +3,13 @@
 
 <head>
   <%= stylesheet_link_tag 'tickets', 'data-turbolinks-track': 'reload' %>
-  <title>QR Code Generator</title>
+  <title>Mi QR</title>
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="text-center">
-      <img id="myImg" src="https://chart.googleapis.com/chart?cht=qr&chl= + <%= @ticket.qrcode %> + &chs=400x400&chld=L|0" class="qr-code img-thumbnail img-responsive" />
-    </div>
+  <div class="d-flex align-items-center justify-content-center vh">
+    <img id="myImg" src="https://chart.googleapis.com/chart?cht=qr&chl=<%= @ticket.qrcode %>&chs=400x400&chld=H|1"
+      class="qr-code img-responsive" />
   </div>
 </body>
 
