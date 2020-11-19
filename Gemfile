@@ -9,8 +9,6 @@ gem 'devise', '~> 4.7.3'
 gem 'cancancan'
 # Use CSV to Export in CSV $ XLS
 gem 'csv'
-#Use Gon to passing data to js
-gem 'gon'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use postgresql as the database for Active Record
