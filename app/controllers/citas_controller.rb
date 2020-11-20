@@ -49,7 +49,7 @@ class CitasController < ApplicationController
           )
           @user.save
         end
-        format.html { redirect_to @cita, notice: 'Cita was successfully created.' }
+        format.html { redirect_to citas_path, notice: 'Cita was successfully created.' }
         format.json { render :show, status: :created, location: @cita }
       else
         format.html { render :new }
